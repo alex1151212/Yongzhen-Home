@@ -18,10 +18,8 @@
   height: 50px;
   width: 350px;
   position: relative;
-  //   z-index: 99;
   &::before {
     content: "";
-    // z-index: 1;
     position: absolute;
     display: flex;
     justify-content: center;

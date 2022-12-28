@@ -14,27 +14,29 @@ const Login: React.FC<LoginProps> = (props) => {
   };
 
   return (
-    <form onSubmit={handleSubmit}>
-      <label>
-        用戶名：
-        <input
-          type="text"
-          value={username}
-          onChange={(event) => setUsername(event.target.value)}
-        />
-      </label>
-      <br />
-      <label>
-        密碼：
-        <input
-          type="password"
-          value={password}
-          onChange={(event) => setPassword(event.target.value)}
-        />
-      </label>
-      <br />
-      <button type="submit">登入</button>
-    </form>
+    <div className="login">
+      <form onSubmit={handleSubmit} className="login-form">
+        <label>
+          <p>Username：</p>
+          <input
+            type="text"
+            value={username}
+            onChange={(event) => setUsername(event.target.value)}
+          />
+        </label>
+        <label>
+          <p>Password：</p>
+          <input
+            type="password"
+            value={password}
+            onChange={(event) => setPassword(event.target.value)}
+          />
+        </label>
+        <button type="submit" className="login-button-submit">
+          登入
+        </button>
+      </form>
+    </div>
   );
 };
 
