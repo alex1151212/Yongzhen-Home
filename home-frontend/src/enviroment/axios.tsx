@@ -10,7 +10,7 @@ export const clearRequest = () => {
 };
 
 const instance = axios.create({
-  baseURL: process.env.REACT_APP_API_URL,
+  baseURL: process.env.BACKEND_URL,
   timeout: 60 * 1000 * 60,
   headers: {
     Authorization: localStorage.getItem("token")

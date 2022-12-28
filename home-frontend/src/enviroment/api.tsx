@@ -13,7 +13,6 @@ export const api = {
   helloWorld: { url: () => "/", method: Method.GET },
   doorOpen: { url: () => `/open`, method: Method.GET },
 
-  //   //login
-  //   login: { url: () => "/login", method: Method.POST },
-  //   logout: { url: () => "/logout", method: Method.GET },
+  //login
+  login: { url: () => "/login", method: Method.POST },
 };

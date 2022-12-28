@@ -7,11 +7,14 @@ import {
   IoPersonOutline,
   IoSettingsOutline,
 } from "react-icons/io5";
+import { useNavigate } from "react-router-dom";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { api } from "../../enviroment/api";
 
-function GlassmorphismHoverEffectsNavbar() {
+function Home() {
+  const navigate = useNavigate();
+
   const doorOpenMessageHandler = (status: string) => {
     switch (status) {
       case "success":
@@ -63,14 +66,13 @@ function GlassmorphismHoverEffectsNavbar() {
         navRef.current?.style.setProperty("--marker-color", "#ff308f");
         break;
     }
-
-    console.log(typeof e.currentTarget.getAttribute("id"));
   };
   const mouseClickHandler = (e: React.MouseEvent<HTMLDivElement>) => {
     switch (e.currentTarget.getAttribute("id")) {
       case "home":
         break;
       case "profile":
+        navigate("/member");
         break;
       case "open":
         axios
@@ -90,8 +92,8 @@ function GlassmorphismHoverEffectsNavbar() {
   };
 
   return (
-    <div className="App">
-      <div id="marker" className="nav-bar-wrapper" ref={navRef}>
+    <div className="home">
+      <div id="marker" className="home-nav-bar-wrapper" ref={navRef}>
         <ul>
           <li>
             <div
@@ -161,4 +163,4 @@ function GlassmorphismHoverEffectsNavbar() {
   );
 }
 
-export default GlassmorphismHoverEffectsNavbar;
+export default Home;
