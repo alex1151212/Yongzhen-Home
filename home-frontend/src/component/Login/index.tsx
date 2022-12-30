@@ -5,7 +5,9 @@ import { instance } from "../../enviroment/axios";
 import Axios from "axios";
 import { useNavigate } from "react-router-dom";
 import { ToastContainer, toast } from "react-toastify";
+
 import "react-toastify/dist/ReactToastify.css";
+import { useAuth } from "../../hook/useAuth";
 interface LoginProps {
   // 在這裡定義您的 props 的型別
 }
@@ -15,6 +17,7 @@ const Login: React.FC<LoginProps> = (props) => {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
 
+  const { user, setUser } = useAuth();
   const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
     // 在這裡放置您的登入邏輯
@@ -32,8 +35,10 @@ const Login: React.FC<LoginProps> = (props) => {
       },
     })
       .then((res) => {
-        const { access_token } = res.data;
+        const { access_token, user } = res.data;
         localStorage.setItem("token", access_token);
+
+        setUser(user);
 
         instance.defaults.headers.common["Authorization"] =
           "Bearer " + access_token || "";
