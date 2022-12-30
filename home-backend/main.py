@@ -1,4 +1,4 @@
-from fastapi import FastAPI, Depends
+from fastapi import FastAPI, Depends,HTTPException
 # import door
 from services import user_service
 import time
@@ -43,4 +43,6 @@ def open():
 
         return "Success"
     except:
-        return "Error"
+        raise HTTPException(
+            status_code=504, detail="Something Went Wrong"
+        )
